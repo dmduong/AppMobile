@@ -1,0 +1,25 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/images/background1.jpeg",
+      "sha1": "d71ec00f1801eaa6d8cf1e890800f2facc7d0421"
+    },
+    {
+      "path": "src/assets/images/background2.jpeg",
+      "sha1": "2b72ae86ac4c8fd709402e159e1c12d18e3d15ef"
+    },
+    {
+      "path": "src/assets/images/login1.jpeg",
+      "sha1": "854ee6a7d5e7450d52ad57c77db80d28bafe6e6d"
+    },
+    {
+      "path": "src/assets/images/login2.jpeg",
+      "sha1": "4457f643a56a22e713dd63681e177e76971e2647"
+    },
+    {
+      "path": "src/assets/images/login3.jpeg",
+      "sha1": "be5e9e484b2081bda9748afd3aa56ffdc801bb95"
+    }
+  ]
+}
