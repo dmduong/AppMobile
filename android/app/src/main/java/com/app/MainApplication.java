@@ -11,7 +11,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.config.ReactFeatureFlags;
 import com.facebook.soloader.SoLoader;
 import com.oblador.vectoricons.VectorIconsPackage;
-import com.psykar.cookiemanager.CookieManagerPackage;
+// import com.psykar.cookiemanager.CookieManagerPackage;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
@@ -21,11 +21,6 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
-    }
-
-    @Override
-    protected List<ReactPackage> getPackages() {
-      return Arrays.asList(new MainReactPackage(), new CookieManagerPackage());
     }
 
     @Override
