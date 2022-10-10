@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import PropTypes from 'prop-types';
 import {
   View,
@@ -9,57 +9,44 @@ import {
   TouchableOpacity,
   StyleSheet,
   Text,
+  Button,
 } from 'react-native';
 const image1 = require('../../assets/images/background1.jpeg');
 import Styles from './Styles';
-
-const user = {
-  userName: 'dmduong',
-  email: 'minhduong14499@gmail.com',
-  password: '1',
-};
+import {useDispatch, useSelector} from 'react-redux';
+import {loginIn} from '../../store/action';
 
 const Login = props => {
   const {navigation} = props;
+  const states = useSelector(state => state);
+  const dispatch = useDispatch();
 
   const [text, setText] = useState({
     userName: '',
     password: '',
   });
 
-  const handleOnchangeUserName = userName => {
-    setText({
-      ...text,
-      userName: userName,
-    });
+  const user = {
+    userName: 'dmduong',
+    email: 'minhduong14499@gmail.com',
+    password: '1',
   };
 
-  const handleOnchangePass = pass => {
-    setText({
-      ...text,
-      password: pass,
-    });
-  };
-
-  const handleSubmit = async (info, navi) => {
-    if (info.userName == '' || info.password == '') {
+  const handleLogin = data => {
+    if (data.userName == '' || data.password == '') {
       alert('Please, Input your name and password !');
+      return;
     } else if (
-      info.userName == user.userName &&
-      info.password == user.password
+      data.userName == user.userName &&
+      data.password == user.password
     ) {
       const users = {
-        user: info.userName,
-        isLogin: true,
+        user: data.userName,
       };
-
-      await navi.navigate('AppPixPox');
-      setText({
-        userName: '',
-        password: '',
-      });
+      dispatch(loginIn('123456789', data));
     } else {
       alert('Password or UserName incorrect !');
+      return;
     }
   };
 
@@ -79,7 +66,12 @@ const Login = props => {
               <View>
                 <TextInput
                   value={text.userName}
-                  onChangeText={userName => handleOnchangeUserName(userName)}
+                  onChangeText={userName =>
+                    setText({
+                      ...text,
+                      userName: userName,
+                    })
+                  }
                   style={Styles.textInput}
                   placeholder={'User name'}
                   placeholderTextColor={'white'}
@@ -89,7 +81,12 @@ const Login = props => {
               <View>
                 <TextInput
                   value={text.password}
-                  onChangeText={passwort => handleOnchangePass(passwort)}
+                  onChangeText={passwort =>
+                    setText({
+                      ...text,
+                      password: passwort,
+                    })
+                  }
                   placeholder="Password"
                   keyboardType="default"
                   secureTextEntry={true}
@@ -100,8 +97,7 @@ const Login = props => {
               </View>
 
               <View>
-                <TouchableOpacity
-                  onPress={() => handleSubmit(text, navigation)}>
+                <TouchableOpacity onPress={() => handleLogin(text)}>
                   <View style={Styles.button}>
                     <Text style={Styles.textButton}>Login</Text>
                   </View>

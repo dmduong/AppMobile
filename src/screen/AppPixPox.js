@@ -194,6 +194,7 @@ const options1 = {
   headerTitleAlign: 'start',
   headerTintColor: '#fff',
   tabBarLabel: 'Home',
+  animationTypeForReplace: 'pop',
   //Chuyền biến color để khi active một tab thì hiển thị màu đó.!
   tabBarIcon: ({color}) => <Icon name="home" size={32} color={color} />,
 };
@@ -211,6 +212,8 @@ const options2 = {
   headerTitleAlign: 'center',
   headerTintColor: '#fff',
   tabBarLabel: 'Messages',
+  animationTypeForReplace: 'pop',
+
   //Chuyền biến color để khi active một tab thì hiển thị màu đó.!
   tabBarIcon: ({color}) => <Icon name="message1" size={32} color={color} />,
 };
@@ -237,6 +240,8 @@ const options3 = {
   headerTitleAlign: 'center',
   headerTintColor: '#fff',
   tabBarLabel: 'Notifications',
+  animationTypeForReplace: 'pop',
+
   //Chuyền biến color để khi active một tab thì hiển thị màu đó.!
   tabBarIcon: ({color}) => <Icon name="bells" size={32} color={color} />,
 };
@@ -257,6 +262,8 @@ const options4 = {
   headerTitleAlign: 'start',
   headerTintColor: '#fff',
   tabBarLabel: 'Account',
+  animationTypeForReplace: 'pop',
+
   //Chuyền biến color để khi active một tab thì hiển thị màu đó.!
   tabBarIcon: ({color}) => <Icon name="user" size={32} color={color} />,
 };

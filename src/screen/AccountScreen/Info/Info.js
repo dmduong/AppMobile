@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import PropTypes from 'prop-types';
 import {
   View,
@@ -11,10 +11,19 @@ import {
 import Styles from './Styles';
 const image1 = require('../../../assets/images/background1.jpeg');
 import Icon from 'react-native-vector-icons/AntDesign';
+import {useDispatch, useSelector} from 'react-redux';
+import {logout} from '../../../store/action';
 
 const Info = props => {
+  const dispatch = useDispatch();
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
+      <Button
+        onPress={() => {
+          dispatch(logout());
+        }}
+        title="Logout"
+      />
       <View style={Styles.container}>
         <View style={Styles.containerTop}>
           <View style={Styles.containerTopLeft}>
